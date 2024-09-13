@@ -1,4 +1,4 @@
-#Card Memory Game:
+# Card Memory Game:
 
 - A simple card memory game created with JavaScript, CSS, and HTML.
 - Cards are clickable and will show their value once clicked on.
