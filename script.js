@@ -1,38 +1,117 @@
+let cardDiv = document.querySelector('.grid-item');
+let attributeValueArray = [];
 
+function compareCards(element, event) {
+    let attributeValue = element.getAttribute("value");
+    element.innerHTML = attributeValue;
+    attributeValueArray.push(element);
 
-function createCards() {
-    const cardDiv = document.createElement("div");
-    cardDiv.classList.add("grid-item")
-    cardDiv.setAttribute("value", "strawberry");
-    const cardsContainer = document.querySelector('.grid-container');
-    
-    cardsContainer.appendChild(cardDiv);
-}
-
-function addCards() {
-    let cardAttribute;
-    let cardAttributeValue;
-    for (let i = 0; i < 16; i++) {
-        createCards();
-        cardAttribute = document.querySelector('.grid-item');
-        cardAttributeValue = cardAttribute.getAttribute("value");
-        console.log(cardAttributeValue)
+    if (attributeValueArray.length == 2 ) {
+        // console.log('attributeValueArray[0]: ', attributeValueArray[0].getAttribute("value"))
+        // console.log('attributeValueArray[1]: ', attributeValueArray[1].getAttribute("value"))
+        if (attributeValueArray[0].getAttribute("value") == attributeValueArray[1].getAttribute("value")) {
+            for (const item of attributeValueArray) {
+                console.log(item)
+                setTimeout(() => {
+                    item.style.color = "pink"
+                    item.style.border = "pink"
+                    item.style.background = "pink"
+                    item.style.text = "pink"
+                    item.removeAttribute("onclick");
+                }, 200);
+            }
+        } else {
+            for (const item of attributeValueArray) {
+                console.log(item)
+                setTimeout(() => {
+                    item.innerHTML = '';
+                }, 200);
+            }
+            
+        }
+        attributeValueArray = []
     }
+    
 }
 
-addCards()
 
 
 
+// const fruitCards = ['strawberry', 'blueberry', 'lemon', 'orange', 'banana', 'apple', 'raspberry', 'blackberry']
+// let fruitTrackerArray = [];
 
-
-
-
-// function cardActions() {
-//     // let attributeValue;
-//     for (let i = 0; i <= 4; i++) {
-//         createCards();
-//         // attributeValue = document.querySelector('#card-' + i);
-//     }
-    // console.log(attributeValue.getAttribute("value"))
+// function getRandomInt(max) {
+//     return Math.floor(Math.random() * max);
 // }
+
+// function getOccurence(array, value) {
+//     var count = 0;
+//     array.forEach((v) => (v === value && count++));
+//     return count;
+// }
+
+// function createCards() {
+//     const cardDiv = document.createElement("div");
+//     let random = getRandomInt(6);
+
+//     cardDiv.classList.add("grid-item"); //adds styles class
+//     cardDiv.setAttribute("value", fruitCards[random]);//sets attribute to random value from array
+//     fruitTrackerArray.push(cardDiv.getAttribute("value"));
+//     cardDiv.innerHTML = cardDiv.getAttribute("value");//gets that random attribute
+//     console.log(fruitCards)
+
+//     if (getOccurence(fruitTrackerArray, 'strawberry') == 2) {
+//         fruitCards.splice('strawberry', 1);
+//         return true;
+
+//     } else if (getOccurence(fruitTrackerArray, 'blueberry') == 2) {
+//         fruitCards.splice('blueberry', 1);
+//         return true;
+
+//     } else if (getOccurence(fruitTrackerArray, 'lemon') == 2) {
+//         fruitCards.splice('lemon', 1);
+//         return true;
+
+//     } else if (getOccurence(fruitTrackerArray, 'orange') == 2) {
+//         fruitCards.splice('orange', 1);
+//         return true;
+
+//     } else if (getOccurence(fruitTrackerArray, 'banana') == 2) {
+//         fruitCards.splice('banana', 1);
+//         return true;
+
+//     } else if (getOccurence(fruitTrackerArray, 'apple') == 2) {
+//         fruitCards.splice('apple', 1);
+//         return true;
+
+//     } else if (getOccurence(fruitTrackerArray, 'raspberry') == 2) {
+//         fruitCards.splice('raspberry', 1);
+//         return true;
+
+//     } else if (getOccurence(fruitTrackerArray, 'blackberry') == 2) {
+//         fruitCards.splice('blackberry', 1);
+//         return true;
+
+//     }
+
+//     const cardsContainer = document.querySelector('.grid-container');
+
+//     cardsContainer.appendChild(cardDiv);
+
+// }
+
+// // function addCards() {
+// //     for (let i = 0; i < 16; i++) {
+// //         createCards();
+// //         // console.log(fruitTrackerArray)
+
+// //     }      
+// //     console.log(getOccurence(fruitTrackerArray, 'strawberry'));
+// //     console.log(getOccurence(fruitTrackerArray, 'blueberry'));
+// //     console.log(getOccurence(fruitTrackerArray, 'orange'));
+// //     console.log(getOccurence(fruitTrackerArray, 'lemon'));
+// //     console.log(getOccurence(fruitTrackerArray, 'banana'));
+// //     console.log(getOccurence(fruitTrackerArray, 'apple'));
+// // }
+
+// // addCards()
