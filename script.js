@@ -1,4 +1,5 @@
 let cardDiv = document.querySelector('.grid-item');
+let matches = document.querySelector('#matches');
 let attributeValueArray = [];
 
 function compareCards(element, event) {
@@ -7,11 +8,10 @@ function compareCards(element, event) {
     attributeValueArray.push(element);
 
     if (attributeValueArray.length == 2 ) {
-        // console.log('attributeValueArray[0]: ', attributeValueArray[0].getAttribute("value"))
-        // console.log('attributeValueArray[1]: ', attributeValueArray[1].getAttribute("value"))
         if (attributeValueArray[0].getAttribute("value") == attributeValueArray[1].getAttribute("value")) {
+            matches.innerHTML = matches.innerHTML - 1
+            console.log(matches)
             for (const item of attributeValueArray) {
-                console.log(item)
                 setTimeout(() => {
                     item.style.color = "pink"
                     item.style.border = "pink"
@@ -22,7 +22,6 @@ function compareCards(element, event) {
             }
         } else {
             for (const item of attributeValueArray) {
-                console.log(item)
                 setTimeout(() => {
                     item.innerHTML = '';
                 }, 200);
